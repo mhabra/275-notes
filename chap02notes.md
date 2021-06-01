@@ -115,17 +115,55 @@ Basically, subtract elements that are in B from A.
 Let U be the universal set. The complement of the set A, denoted by $\bar{A}$, is the complement of A with respect to U. Therefore, the complement of the set A is $U − A$.
 
 ## Set Identities
-| $A ∩ U = A$ $A∪∅=A$ | Identity laws |
+| Identity | Name |
 |-|-|
-| $A ∪ U = U$  $A∩∅=∅$ | Domination laws |
-| $A ∪ A = A$ $A∩A=A$ | Idempotent laws |
-| $\bar{(\bar{A})} = A$ | Complementation law |
-| $A ∪ B = B ∪ A$ $A∩B=B∩A$ | Commutative laws |
-| $A ∪ (B ∪ C) = (A ∪ B) ∪ C$ $A∩(B∩C) = (A∩B)∩C$ | Associative laws |
-| $A ∪ (B ∩ C) = (A ∪ B) ∩ (A ∪ C)$ $A∩(B∪C) = (A∩B)∪(A∩C)$ | Distributive laws |
-| $\bar{A ∩ B} = \bar{A} ∪ \bar{B}$ $\bar{A∪B}=\bar{A} ∩ \bar{B}$ | De Morgan’s laws |
-| $A ∪ (A ∩ B) = A$ $A∩(A∪B) = A$ | Absorption laws |
-| $A ∪ \bar{A} = U$ $A∩\bar{A}=∅$ | Complement laws |
+| $A ∩ U = A$<br> $A∪∅=A$ | Identity laws |
+| $A ∪ U = U$<br> $A∩∅=∅$ | Domination laws |
+| $A ∪ A = A$<br> $A∩A=A$ | Idempotent laws |
+| $\overline{(\bar{A})} = A$ | Complementation law |
+| $A ∪ B = B ∪ A$<br> $A∩B=B∩A$ | Commutative laws |
+| $A ∪ (B ∪ C) = (A ∪ B) ∪ C$ <br> $A∩(B∩C) = (A∩B)∩C$ | Associative laws |
+| $A ∪ (B ∩ C) = (A ∪ B) ∩ (A ∪ C)$ <br> $A∩(B∪C) = (A∩B)∪(A∩C)$ | Distributive laws |
+| $\overline{A ∩ B} = \bar{A} ∪ \bar{B}$ <br> $\overline{A∪B}=\bar{A} ∩ \bar{B}$ | De Morgan’s laws |
+| $A ∪ (A ∩ B) = A$ <br> $A∩(A∪B) = A$ | Absorption laws |
+| $A ∪ \bar{A} = U$<br> $A∩\bar{A}=∅$ | Complement laws |
 
 Notice how DeMorgan's law is very similar.
+
+## Functions
+
+* Also called mappings and transformations
+* For x, there can only be one y. 
+
+### Injective
+* Also called one to one.
+* Each x points to a different y.
+
+### Surjective
+* Means every y, has a corresponding x value.
+* $y = x^2$ is NOT surjective, because when $y=-1$, there is no x.
+* Also called onto.
+
+### Bijective
+* Both injective and surjective
+* Also called one-to-one correspondence
+
+### Inverse of Functions
+* A function has an inverse, if when you switch x and y, the new equation is also a function.
+* Basically, **iff** the original function is a bijection.
+
+### Floor and Ceil
+The floor function, denoted $f(x)= ⎣x⎦$ is the largest integer less than or equal to x. The ceiling function, denoted $f(x)= ⎡x⎤$ is the smallest integer greater than or equal to x.
+
+* Basically for floor, look at the ones decimal place for the answer.
+  * As it lowers it to that integer.
+* For ceil, add 1 to the ones decimal place for answer.
+  * As it increases it to that integer.
+
+Example:
+* floor(1/2) = floor(0.5), since ones place is 0, answer is 0.
+* ceil(1/2) = ceil(.5), since ones place is 0, we add 1 to get 1, for the answer.
+* It's pretty self explanatory from the names, themselves. Floor lowers, ceils increases.
+* Floor or ceil of that integer is itself.
+
 
