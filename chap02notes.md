@@ -64,4 +64,68 @@
 * Denoted by $2^A$ or $P(A)$.
 * If $A = \{a,b\}$ then $P(A) = \{ø, \{a\},\{b\},\{a,b\}\}$
 * Notice that the power set is NOT the set of each individual element, rather it is the set of all subsets.
-  * Basically make sure to have brackets around everything in
+  * Basically make sure to have brackets around everything in the power set.
+
+### Set Cardinality and Size of Sets
+* If there are exactly n distinct elements in S where n is a nonnegative integer, we say that S is finite. Otherwise it is infinite.
+* The cardinality of a finite set A, denoted by |A|, is the number of (distinct) elements of A.
+1. $|ø|=0$ Empty set has no elements.
+1. $|\{1,2,3\}| = 3$
+2. $|\{ø\}| = 1$ Set of empty set has 1 element.
+3. $|\{ {1,2,3} \}| = 1$
+
+Notice how that subsets count as one set.
+
+### Cartesian Products
+
+The Cartesian Product of sets A and B (denoted with $A \times B$), represents the set of all ordered pairs (a, b), where $a ∈ A$ and $b ∈ B$.
+
+For example:
+
+What is the Cartesian product of $A = \{1, 2\}$ and $B = \{a, b, c\}$?
+
+$A × B = \{(1,a),(1,b),(1,c),(2,a),(2,b),(2,c)\}$
+
+Note that the Cartesian product is NOT commutative, i.e. A x B does not equal B x A.
+
+
+## Set Operations
+Basically, operations you can do on sets.
+
+### Union
+Let A and B be sets. The union of the sets A and B, denoted by $A ∪ B$, is the set that contains those elements that are either in A or in B, or in both.
+
+The union of the sets $\{1,3,5\}$ and $\{1,2,3\}$ is the set $\{1,2,3,5\}$; that is, $\{1,3,5\} ∪ \{1,2,3\} = \{1,2,3,5\}$.
+
+Basically adding all elements in both sets to one set.
+
+### Intersection
+Let A and B be sets. The intersection of the sets A and B, denoted by $A ∩ B$, is the set containing those elements in both A and B.
+
+The intersection of the sets $\{1,3,5\}$ and $\{1,2,3\}$ is the set $\{1,3\}$; that is, $\{1,3,5\} ∩ \{1,2,3\} = \{1,3\}$.
+
+Two sets are called disjoint if their intersection is the empty set.
+
+### Difference
+The difference of A and B, denoted by $A − B$, is the set containing those elements that are in A but not in B. The difference of A and B is also called the complement of B with respect to A.
+
+Basically, subtract elements that are in B from A.
+
+### Complement
+Let U be the universal set. The complement of the set A, denoted by $\bar{A}$, is the complement of A with respect to U. Therefore, the complement of the set A is $U − A$.
+
+## Set Identities
+| $A ∩ U = A$ $A∪∅=A$ | Identity laws |
+|-|-|
+| $A ∪ U = U$  $A∩∅=∅$ | Domination laws |
+| $A ∪ A = A$ $A∩A=A$ | Idempotent laws |
+| $\bar{(\bar{A})} = A$ | Complementation law |
+| $A ∪ B = B ∪ A$ $A∩B=B∩A$ | Commutative laws |
+| $A ∪ (B ∪ C) = (A ∪ B) ∪ C$ $A∩(B∩C) = (A∩B)∩C$ | Associative laws |
+| $A ∪ (B ∩ C) = (A ∪ B) ∩ (A ∪ C)$ $A∩(B∪C) = (A∩B)∪(A∩C)$ | Distributive laws |
+| $\bar{A ∩ B} = \bar{A} ∪ \bar{B}$ $\bar{A∪B}=\bar{A} ∩ \bar{B}$ | De Morgan’s laws |
+| $A ∪ (A ∩ B) = A$ $A∩(A∪B) = A$ | Absorption laws |
+| $A ∪ \bar{A} = U$ $A∩\bar{A}=∅$ | Complement laws |
+
+Notice how DeMorgan's law is very similar.
+
