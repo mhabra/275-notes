@@ -115,18 +115,18 @@ Basically, subtract elements that are in B from A.
 Let U be the universal set. The complement of the set A, denoted by $\bar{A}$, is the complement of A with respect to U. Therefore, the complement of the set A is $U − A$.
 
 ## Set Identities
-| Identity | Name |
-|-|-|
-| $A ∩ U = A$<br> $A∪∅=A$ | Identity laws |
-| $A ∪ U = U$<br> $A∩∅=∅$ | Domination laws |
-| $A ∪ A = A$<br> $A∩A=A$ | Idempotent laws |
-| $\overline{(\bar{A})} = A$ | Complementation law |
-| $A ∪ B = B ∪ A$<br> $A∩B=B∩A$ | Commutative laws |
-| $A ∪ (B ∪ C) = (A ∪ B) ∪ C$ <br> $A∩(B∩C) = (A∩B)∩C$ | Associative laws |
-| $A ∪ (B ∩ C) = (A ∪ B) ∩ (A ∪ C)$ <br> $A∩(B∪C) = (A∩B)∪(A∩C)$ | Distributive laws |
-| $\overline{A ∩ B} = \bar{A} ∪ \bar{B}$ <br> $\overline{A∪B}=\bar{A} ∩ \bar{B}$ | De Morgan’s laws |
-| $A ∪ (A ∩ B) = A$ <br> $A∩(A∪B) = A$ | Absorption laws |
-| $A ∪ \bar{A} = U$<br> $A∩\bar{A}=∅$ | Complement laws |
+| Identity                                                                       | Name                |
+| ------------------------------------------------------------------------------ | ------------------- |
+| $A ∩ U = A$<br> $A∪∅=A$                                                        | Identity laws       |
+| $A ∪ U = U$<br> $A∩∅=∅$                                                        | Domination laws     |
+| $A ∪ A = A$<br> $A∩A=A$                                                        | Idempotent laws     |
+| $\overline{(\bar{A})} = A$                                                     | Complementation law |
+| $A ∪ B = B ∪ A$<br> $A∩B=B∩A$                                                  | Commutative laws    |
+| $A ∪ (B ∪ C) = (A ∪ B) ∪ C$ <br> $A∩(B∩C) = (A∩B)∩C$                           | Associative laws    |
+| $A ∪ (B ∩ C) = (A ∪ B) ∩ (A ∪ C)$ <br> $A∩(B∪C) = (A∩B)∪(A∩C)$                 | Distributive laws   |
+| $\overline{A ∩ B} = \bar{A} ∪ \bar{B}$ <br> $\overline{A∪B}=\bar{A} ∩ \bar{B}$ | De Morgan’s laws    |
+| $A ∪ (A ∩ B) = A$ <br> $A∩(A∪B) = A$                                           | Absorption laws     |
+| $A ∪ \bar{A} = U$<br> $A∩\bar{A}=∅$                                            | Complement laws     |
 
 Notice how DeMorgan's law is very similar.
 
@@ -167,3 +167,102 @@ Example:
 * Floor or ceil of that integer is itself.
 
 
+## Sequences & Summations
+* Sequences are ordered lists of elements (usually numbers).
+* Summations are when you add all the elements in the sequence.
+
+#### Empty String
+From the book:
+>Sequences of the form a1, a2, ... , an are often used in computer science. These finite se- quences are also called strings. This string is also denoted by a1a2 ... an... The length of a string is the number of terms in this string. The empty string, denoted by $\lambda$, is the string that has no terms `[think null character in C-strings]`. The empty string has length zero. The string abcd is a string of length four.
+
+### Arithmetic Regression
+Arithmetic regression has form:
+$$a,a + d,a + 2d,...,a + nd,...$$ 
+
+### Geometric Progression
+Geometric progression is a sequence in the form of:
+$$a,ar,ar^2,...,ar^n,...$$
+
+Summing these terms gives us a geomettic series:
+$\sum_{k=0}^{n}{ar^k} = \dfrac{ar^{n+1} - a}{r-1}, r ≠ 0$
+
+
+### Recurrence Relation
+* A recurrence relation for the sequence $a_n$ is an equation that expresses an in terms of one or more of the previous terms of the sequence.
+* Think of the Fibonacci Sequence: $f_n = f_{n−1} + f_{n−2}$.
+  * Current element defined by sum of two last elements.
+* The initial conditions of a recurrence relation define it. That is a recurrence relation together with its initial conditions determines a unique solution.
+* A **closed formula** for a sequence, defines in terms of its initial conditions only, and can give you the term at any n, regardless of whether you know its previous terms.
+
+### Product Notation
+* Just like sigma, but you multiply instead of add, and you use big pi, rather than big sigma:
+$\prod_{i=a}^{b} f(i)$
+
+### On Cardinality and Countability of Infinite Sets
+* The sets A and B have the same cardinality if and only if there is a one-to-one correspondence from A to B.
+* The set of positive even integers is countably infinite
+* The set of (positive and negative) integers is countably infinite
+* The set of positive rational numbers is countably infinite
+* The set of real numbers is uncountably infinite.
+
+A set is countably infinite if its elements can be put in one-to-one correspondence with the set of natural numbers, otherwise uncountbaly infinite.
+
+## Matrices
+* Rectangular of numbers
+
+### Zero-One Matrix
+* A matrix all of whose entries are either 0 or 1 is called a zero–one matrix:
+
+$\begin{bmatrix}
+1 & 0 & 1\\
+0 & 1 & 0
+\end{bmatrix}$
+
+* These 1's and 0's can represent computer bits, and we can treat them as truth values.
+  * **1 IS TRUE**
+  * **0 IS FALSE**
+* Because we are treating them as truth values, we can use the Boolean operations $∧$ (and) and $∨$ (or).
+  * $1 ∧ 1 \equiv 1$
+  * $1 ∧ 0 \equiv 0$
+  * $1 ∨ 1 \equiv 1$
+  * etc, basically just T and F, but with 1 and 0
+* Using these properties, we can define new operations for zero-one matrices
+
+### Join
+* The join of two matrices is defined for two zero-one matrices of equal dimensions.
+* The join of two matrices A, B, results in a new matrix with equal dimensions, with the *(i, j)*th entry corresponding to $A_{ij} ∨ B_{ij}$.
+* Basically you look at the entry of the same location for two matrices, and you do OR on them.
+
+Example:
+
+$\mathbf{A} = \begin{bmatrix} 1 & 0 & 1\\ 0 & 1 & 0 \end{bmatrix}$
+$\mathbf{B} = \begin{bmatrix} 0 & 1 & 0\\ 1 & 1 & 0 \end{bmatrix}$<br>
+
+$\mathbf{A} ∨ \mathbf{B} = \begin{bmatrix} 1∨0 & 0∨1 & 1∨0\\ 0∨1 & 1∨1 & 0∨0 \end{bmatrix} = \begin{bmatrix} 1 & 1 & 1\\ 1 & 1 & 0 \end{bmatrix}$
+
+  
+### Meet
+* The meet is similar to join except it uses $∧$ (and) instead of $∨$.
+* The meet of two matrices is defined for two zero-one matrices of equal dimensions.
+* The join of two matrices A, B, results in a new matrix with equal dimensions, with the *(i, j)*th entry corresponding to $A_{ij} ∧ B_{ij}$.
+* Basically you look at the entry of the same location for two matrices, and you do AND on them.
+
+Example, same matrices as above, but meet instead of join:
+
+$\mathbf{A} ∧ \mathbf{B} = \begin{bmatrix} 1∧0 & 0∧1 & 1∧0\\ 0∧1 & 1∧1 & 0∧0 \end{bmatrix} = \begin{bmatrix} 0 & 0 & 0\\ 0 & 1 & 0 \end{bmatrix}$
+
+### Boolean Product
+* Denoted with: $⊙$
+* The boolean product of two zero-one matrices is defined for matrices that you can do regular matrix multiplication with.
+  * This means if you take the boolean product of $\mathbf{A} ⊙ \mathbf{B}$, you should be able to do regular matrix multiplication with them.
+  * That is number of columns of A should equal number rows of B. (Inner dimensions match)
+* You basically do matrix multiplication, but instead of addition you use $∨$, and multiplication you use $∧$.
+* Also like matrix multiplication, the boolean product is NOT COMMUTATIVE.
+
+Example:
+
+$\mathbf{A} = \begin{bmatrix} 1 & 0\\ 0 & 1\\ 1 & 0 \end{bmatrix}$ 
+$\mathbf{B} = \begin{bmatrix} 1 & 1 & 0\\ 0 & 1 & 1 \end{bmatrix}$<br>
+
+$\mathbf{A} ⊙ \mathbf{B} = \begin{bmatrix}(1∧1)∨(0∧0) & (1∧1)∨(0∧1) & (1∧0)∨(0∧1)\\ (0∧1)∨(1∧0) & (0∧1)∨(1∧1) & (0∧0)∨(1∧1)\\ 1∧1)∨(0∧0) & (1∧1)∨(0∧1) & (1∧0)∨(0∧1)\end{bmatrix} = \begin{bmatrix} 1∨0 & 1∨0 & 0∨0\\ 0∨0 & 0∨1 & 0∨1\\ 1∨0 & 1∨0 & 0∨0\end{bmatrix} =$ 
+$$\begin{bmatrix} 1 & 1 & 0\\ 0 & 1 & 1\\ 1 & 1 & 0\end{bmatrix}$$
