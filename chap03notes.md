@@ -79,4 +79,34 @@ void insertionSort(int arr[], int n) {
 ![Insertion Sort Diagram](.media/insertion-sort.png)
 
 
-### Greedy Algorithms
+## Growth of Functions
+### Big-O
+* We use Big-O notation to track the growth of functions without having to worry about constant multipliers or smaller order terms.
+* Formally, we say that a function $f(x)$ is $O(g(x))$, when: $|f(x)| ≤ C|g(x)|, \text{whenever } x > k$,
+* Basically this means a function is big-O of another function g(x), *if* g(x) is greater or equal than it, while multiplied by some constant C, after some point k.
+* All this means, is that the O(x) functions acts as an upper bound for f(x). f(x) must be smaller than O(g(x)) for it to be true.
+
+We can visualize Big-O like this:<br>
+![Visualization of Big-O](.media/big-O.png)
+
+The blue represents g(x) and the red represents f(x). After some point (marked by the dashed line), g(x) is ALWAYS bigger than f(x). Thus we can say that f(x) is O(g(x)).
+
+#### Example
+Show that $f(x)=x^2 +2x+1$ is $O(x^2)$.
+
+Already, we can guess that f(x) is $O(x^2)$, as they're both the same degree. Using our formal definition of Big-O, we can also further intuitively know that it is $O(x^2)$, because if we were to multiply $x^2$ by 100, or any other really large number, it would act as C, and we can obviously know it would act as a bigger upper bound than f(x).
+
+However, we can approach the example more systematically as well, but the systematic approach uses the same logic as the intuitive approach. For f(x) to be $O(x^2)$, each term must be less than or equal to $x^2$, at some point $x$. For the sake of easiness, let's look at when $x > 1$. The first term, $x^2$ is obviously less than or equal to $x^2$, regardless of what x equals to. The second term is $2x$. If we look at the $2x$ term, the $2x$ is greater than $x^2$ when x is between 1 and 2. But, since we're also allowed to use multiples of $x^2$, as is stated in the formal definition of big-O, we can look at $2x^2$, and see that $2x^2$ is greater than $2x$ when x > 1. So now we have $2x^2 > 2x$. Note we could have used any multiple of $x^2$, so long as it made it bigger when x > 1. The final term is 1, and $x^2$ is greater than 1 when x > 1. Now we can construct this inequality, substituting our new larger terms in: $x^2 +2x+1 ≤ x^2 +2x^2 + x^2 = 3x^2$. Since we showed each of the terms were larger than some other value, we can substitute those larger values in to make the inequality. And since $f(x) ≤ 3x^2$, which is a multiple of $x^2$, we can say that $f(x)$ is $O(x^2)$, when x > 1. We can pick other x values as well to prove that it is $O(x^2)$, but, regardless, we just need to state which x-value we used.
+
+
+***NOTE***
+
+**This is a very important caveat.** Just because $f(x)$ is $O(x^2)$ does not mean, it is not big-O of any other function. Remember O(x) is an upper bound on f(x). f(x) is big-O of a myriad of other functions, not just multiples of quadratics. f(x) is also big-O of $x^3$ and many exponential and power functions. As long as it isn greater tha f(x), f(x) is big-O of that function.
+
+### Big-Omega
+
+### Big-Theta
+
+### Important Fucntions
+### Combinations of Functions
+
