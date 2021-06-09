@@ -5,3 +5,4 @@ These are my notes for Math 275. They're in markdown, so open them in your favor
 
 
 Send me pull requests if you want to change anything.
+I also pdfs of the notes, so if you want to just use the pdfs instead of the original markdown.
