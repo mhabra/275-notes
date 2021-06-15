@@ -6,7 +6,29 @@
 * An algorithm are precise step by step instructions for completing a task.
 * Pseudocode is useful for understanding algorithms.
   * Syntax is self-explanatory
+* Two big types of algorithms are searching and sorting algorithm
 
+### Linear Search
+* *Very very* simple and easy searching algorithm
+* Very self explanatory
+* Given array of numbers and number to search for, iterate through until you find them
+
+~~~C++
+int linSearch(int arr[], int n, int x) {
+    for (int i = 0; i < n; i++) {
+        if (arr[i] == x) {
+            return i;
+        }
+    }
+
+    return -1;
+}
+~~~
+
+### Binary Search
+* Requires Sorted array
+* Splits array into two and compares number to be searched with max of smaller array
+* Binary Searches are best suited for recursive functions by their nature.
 
 ### Bubble Sort
 * Simple sorting algorithm
@@ -78,6 +100,15 @@ void insertionSort(int arr[], int n) {
 
 ![Insertion Sort Diagram](.media/insertion-sort.png)
 
+### Greedy Algorithms
+* A greedy algorithm makes the optimal choice at each step.
+* However, this does not *necessarily* mean it makes the optimal result.
+* We must check if it creates optimal result through proofs.
+
+### Halting Problem
+* The halting problem goes like this: Is there an algorithm such that if we give it a computer program and the input to that program, can we determine whether this program will go into an infinite loop or will it stop?
+  * Note that we can't actually run the program to see if it runs.
+* The answer is no, we can't. Read book for detailed proof.
 
 ## Growth of Functions
 ### Big-O
@@ -101,12 +132,126 @@ However, we can approach the example more systematically as well, but the system
 
 ***NOTE***
 
-**This is a very important caveat.** Just because $f(x)$ is $O(x^2)$ does not mean, it is not big-O of any other function. Remember O(x) is an upper bound on f(x). f(x) is big-O of a myriad of other functions, not just multiples of quadratics. f(x) is also big-O of $x^3$ and many exponential and power functions. As long as it isn greater tha f(x), f(x) is big-O of that function.
+**This is a very important caveat.** Just because $f(x)$ is $O(x^2)$ does not mean, it is not big-O of any other function. Remember O(x) is an upper bound on f(x). f(x) is big-O of a myriad of other functions, not just multiples of quadratics. f(x) is also big-O of $x^3$ and many exponential and power functions. As long as it is greater than or equal to f(x), f(x) is big-O of that function.
+
+
+### Important Functions
+* $n!$ is big-O of $n^n$ and $n \log{n}$
+
+![Big-O Important Functions](.media/important-functions.png)
+
 
 ### Big-Omega
+* Big-Omega notation is like big-O notation, but instead of an upper bound, it gives a lower bound.
+>We say that f (x) is $Ω(g(x))$ if there are constants C and k with C positive such that $|f (x)| ≥ C|g(x)|$ whenever $x > k$.
+
+This is what big-omega notation looks like:
+
+
+![Big-Omega Notation](.media/big-omega.png)
+
+Blue is is Big-Omega of f(x) after that dashed line.
+
+* $f(x)$ is $Ω(g(x))$ **if and only if** $g(x)$ is $O(f (x))$.
+  * This is because you're basically switching the bounds, and doing so gives you big-O.
+
+>The function $f (x) = 8x^3 + 5x^2 + 7$ is $Ω(g(x))$, where g(x) is the function $g(x) = x^3$ . This is easy to see because $f (x) = 8x^3 + 5x^2 + 7 ≥ 8x^3$ for all positive real numbers x. This is equivalent to saying that $g(x) = x^3$ is $O(8x^3 + 5x^2 + 7)$, which can be established directly by turning the inequality around.
 
 ### Big-Theta
 
-### Important Fucntions
-### Combinations of Functions
+* Big-Theta is like a combination of big-O and big-Omega. It gives both an upper limit and lower limit on a function. If a function fits between the bounds, it is Big-Theta of the bounds.
+* If $f(x)$ is both $O(g(x))$ and $Ω(g(x))$, then it is $Θ(g(x))$.
+* If it is both big O and big Omega of g(x), that means the only thing that's changing $g(x)$ is a constant, so that it looks like this:
 
+$C_1|g(x)| ≤ | f (x)| ≤ C_2|g(x)|$ 
+
+* The constants (C1 and C2) are the only thing that's changing $g(x)$ from one bound to another.
+* If $f(x)$ is $Θ(g(x))$, that means $f(x)$ and $g(x)$ are in the same order.
+* For polynomials, the leading term determines its order and thus its Big-Theta.
+
+Here's what big-Theta looks like:
+
+![Visualization of Big-Theta](.media/big-Theta.png)
+
+
+Interesting Note From Book:
+>Unfortunately, as Knuth observed, big-O notation is often used by careless writers and speakers as if it had the same meaning as big-Theta notation. Keep this in mind when you see big-O notation used. The recent trend has been to use big-Theta notation whenever both upper and lower bounds on the size of a function are needed.
+
+
+## Complexity of Algorithms
+* The computational complexity of algorithms is usually measured with either time complexity or space complexity. We'll be focusing on time complexity.
+
+### Time Complexity
+* Can be expressed in terms of the number of operations used by the algorithm when the input has a particular size.
+* The operations used to measure time complexity can be the comparison of integers, the addition of integers, the multiplication of integers, the division of integers, or any other basic operation.
+* Basically, every time you perform an operation (whatever it may be), we add to it's time complexity.
+* We use number of operations rather than actual computing time for time complexity because each computer has different times to actually compute the basic operations.
+* In this way, it gives us a standard way to measure algorithms, without worrying about the specifics of every computer in existence.
+* So remember **Time Complexity = Number of Operations Done** in an algorithm, and input is a some size that which algorithm is doing.
+
+For example in a search algorithm that iterates over an array to find the largest value:
+
+~~~C++
+int findMax(int arr[], int size) {
+    int max = arr[0];
+    for {int i = 1; i < size; i++} {
+        if arr[i] > max {
+            max = arr[i];
+        }
+    }
+
+    return max;
+}
+~~~
+
+Let's identify all the operations that are going on, and let's say `n = size`:
+1. Comparing whether `i < size`
+   1. This happens `n` times. 
+   2. The first `n-1` times, it actually enters the loop. And the last `nth` time to exit the loop.
+2. Add to `i` with `i++`
+   1. This happens `n-1` times.
+   2. At the last element of the array, it increments `i` by `1`, making it greater than size.
+   3. This would have been `n` times, but we started at `i = 1` rather than `i = 0`.
+3. Comparing `arr[i]` with `max`
+   1. This also happens `n-1` times.
+   2. Logically, this would be the same amount as `i++`, because `i++` comes after the last line of the function, and this is before it.
+
+So overall our complexity of this function is `2(n-1) + n = 3n - 2`.
+This means we do `3n - 2` operations when we use this function.
+
+
+### Worst Case Complexity
+* What we just did with the earlier example was the worst case complexity.
+* The worst case complexity is the largest amount of operartions needed to guarantee to solve the problem.
+* In the previous one, though, it ALWAYS runs `3n - 2` times, so saying worst case analysis is kind of redundant.
+* Worst case analysis comes more into play, when the amount of times an algorithm needs to run is variable, like a searching algorithm.
+* Take the binary search algorithm for example, what would the worst case scenario be if it has $n = 2^k$ elements?
+* Every time we do two comparisons, we have $2^{k-1}$ elements, thus we continue this until we have $2^1$ elements left. Then we do two more comparisons: when one term is left in the list, one comparison tells us that there are no additional terms left, and one more comparison is used to determine if this term is x.
+* So the number of comparisons we do is: `2k + 2`, which is $2\log{n}+2$.
+* However this is the MAX amount of comparisons we need to do.
+* We could have just as easily found our eleemnt with our first search.
+
+
+### Complexity of Algorithms
+| Complexity | Terminology |
+|-|-|
+| $Θ(1)$ | Constant Complexity |
+| $Θ(log n)$ | Logarithmic complexity |
+| $Θ(n)$ | Linear Complexity |
+| $Θ(n log n)$ | Linearithmic Complexity |
+| $Θ(n^b)$ | Polynomial Complexity |
+| $Θ(b^n)$, where $b > 1$ | Exponential Complexity |
+| $Θ(n!)$ | Factorial Complexity |
+
+
+* Binary search has logarithmic complexity.
+* Many important algorithms have n log n, or linearithmic (worst-case) complexity
+
+### Tractability and Solvability
+* A problem that is solvable using an algorithm with polynomial (or better) worst-case complexity is called tractable.
+  * Provided n is not very large
+* Intractable otherwise.
+* If an algorithm cannot solve a problem, that problem is unsolvable.
+
+### Computer Time Used by Algorithms
+![Computer Time Used by Algorithms](.media/algorithm-comp-time.png)
